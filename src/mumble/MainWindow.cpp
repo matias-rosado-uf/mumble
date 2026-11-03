@@ -173,6 +173,7 @@ MainWindow::MainWindow(QWidget *p)
 	createActions();
 	setupUi(this);
 	setupGui();
+	connect(qaToggleFullScreen, &QAction::triggered, this, &MainWindow::toggleFullScreen);
 	connect(qmUser, SIGNAL(aboutToShow()), this, SLOT(qmUser_aboutToShow()));
 	connect(qmChannel, SIGNAL(aboutToShow()), this, SLOT(qmChannel_aboutToShow()));
 	connect(qmListener, SIGNAL(aboutToShow()), this, SLOT(qmListener_aboutToShow()));
@@ -4356,4 +4357,17 @@ void MainWindow::showImageDialog() {
 			QMessageBox::warning(this, tr("Error"), tr("Failed to decode image."));
 		}
 	}
+}
+
+void MainWindow::toggleFullScreen() {
+    if (isFullScreen()) {
+        if (m_wasMaximizedBeforeFullScreen) {
+            showMaximized();
+        } else {
+            showNormal();
+        }
+    } else {
+        m_wasMaximizedBeforeFullScreen = isMaximized();
+        showFullScreen();
+    }
 }
