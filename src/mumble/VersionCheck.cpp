@@ -173,8 +173,8 @@ void VersionCheck::fetched(QByteArray a, QUrl url) {
 							}
 
 							qWarning() << "Purging old snapshot" << fileInfo.fileName();
-							QFile file(fileInfo.absoluteFilePath());
-							file.remove();
+							QFile snapshotFile(fileInfo.absoluteFilePath());
+							snapshotFile.remove();
 						}
 					} else {
 						Global::get().mw->msgBox(tr("Downloading new snapshot from %1 to %2")
