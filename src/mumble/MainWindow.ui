@@ -90,10 +90,18 @@
     <addaction name="qaSelfRegister"/>
     <addaction name="qaAudioStats"/>
    </widget>
+   <widget class="QMenu" name="qmView">
+    <property name="title">
+     <string>&amp;View</string>
+    </property>
+    <addaction name="qaToggleFullScreen"/>
+   </widget>
    <addaction name="qmServer"/>
    <addaction name="qmSelf"/>
+   <addaction name="qmView"/>
    <addaction name="qmConfig"/>
    <addaction name="qmHelp"/>
+   
   </widget>
   <widget class="QDockWidget" name="qdwLog">
    <property name="minimumSize">
@@ -592,6 +600,17 @@
    </property>
    <property name="whatsThis">
     <string>Pops up a small dialog with information about your current audio input.</string>
+   </property>
+  </action>
+  <action name="qaToggleFullScreen">
+   <property name="text">
+    <string>Toggle Full Screen</string>
+   </property>
+   <property name="shortcut">
+    <string>F11</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::WindowShortcut</enum>
    </property>
   </action>
   <action name="qaAudioUnlink">

@@ -133,6 +133,7 @@ public:
 	/// Restart the client after shutdown
 	bool restartOnQuit;
 
+	bool m_wasMaximizedBeforeFullScreen = false;
 	/// Contains the cursor whose position is immediately before the image to
 	/// save when activating the "Save Image As..." context menu item.
 	QTextCursor qtcSaveImageCursor;
@@ -479,6 +480,7 @@ public:
 	void openAboutQtDialog();
 	void versionCheck();
 	void enablePositionalAudio(bool enable);
+	void toggleFullScreen();
 };
 
 #endif
